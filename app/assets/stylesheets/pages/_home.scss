@@ -3,7 +3,7 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 .wrapper {
-  background-image: url("background.jpg");
+  background-image: url('<%= image_tag "Logo.png" %>');
   background-repeat: no-repeat;
   background-size: cover;
   height: 70vh;

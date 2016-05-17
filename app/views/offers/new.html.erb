@@ -1,0 +1,27 @@
+<div class="container" id="homepage">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="text-center"><%=current_user.first_name%>, it's time to set up a sweet proposition to your customer</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <% if @offer.errors.any? %>
+        <ul>
+          <%@offer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= simple_form_for @offer do |f| %>
+        <%= f.input :title, label: "Enter the name of your offer", input_html: { placeholder: "Mojito's fever" } %>
+        <%= f.input :description, label: "Please give a detailed description of your offer" %>
+        <%= f.input :city, label: "in which city can you offer your service?" %>
+        <%= f.input :base_price, label: "Please enter the price in € TTC per person" %>
+        <%= f.input :price_20, label: "Please enter the price in € TTC per person when number of guest is greater than 20 people " %>
+        <%= f.input :price_50, label: "Please enter the price in € TTC per person when number of guest is greater than 50 people" %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

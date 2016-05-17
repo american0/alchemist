@@ -2,15 +2,13 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
-    @user = User.find(params[:user_id])
   end
 
   def create
-    @offer = Offern.new(offer_params)
-    @user = User.find(params[:user_id])
-    @offer.user = @user
+    @offer = Offer.new(offer_params)
+    @offer.user_id = current_user.id
     if @offer.save
-      redirect_to user_path(@user)
+      redirect_to user_path(current_user)
     else
       render 'offers/new'
     end
@@ -18,7 +16,7 @@ class OffersController < ApplicationController
 
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :base_rice, :price_20, :price_50)
+    params.require(:offer).permit(:title, :description, :city, :base_price, :price_20, :price_50)
   end
 
 

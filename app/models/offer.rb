@@ -4,7 +4,7 @@ class Offer < ActiveRecord::Base
   has_many :ratings, through: :bookings
 
   validates :title, presence: true
-  validates :
+  validates :city, presence: true
   validates :description, presence: true
   validates :base_price, presence: true
   validates :price_20, presence: true

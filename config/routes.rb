@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users do
-    resources :offers
-    resources :cocktails
-  end
-
-
-  resources :reviews
   root to: 'pages#home'
+
+  devise_for :users
+
+  resources :cocktails
+  resources :reviews
+  resources :offers
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

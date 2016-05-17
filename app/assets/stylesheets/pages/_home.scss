@@ -4,17 +4,12 @@
  * ------------------------------------- */
 .wrapper {
   background-image: url(<%= image_path("Logo.png") %>);
-  background-repeat: no-repeat;
   background-size: cover;
   height: 70vh;
   text-align: center;
   display: flex;
   align-items: center;
 }
-
-
-
-
 
 .container {
   margin: auto;

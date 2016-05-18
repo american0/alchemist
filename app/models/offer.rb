@@ -10,6 +10,8 @@ class Offer < ActiveRecord::Base
   validates :price_20, presence: true
   validates :price_50, presence: true
 
+  mount_uploader :photo, PhotoUploader
+
   geocoded_by :city
   after_validation :geocode, if: :city_changed?
 end

@@ -4,9 +4,9 @@
 
     <% @offers.each do |f| %>
       <div class="card">
-      <div class="footer"><%= image_tag f.user.picture %><%=f.user.first_name.capitalize + " " + f.user.last_name.upcase%></div>
+      <div class="footer"><%= image_tag f.user.avatar %><%=f.user.first_name.capitalize + " " + f.user.last_name.upcase%></div>
       <div class="banner1">
-      <div class="banner"></div>
+      <div class="banner" style="background-image: url('<%= image_path f.photo, height: 300, width: 400, crop: :fill %>')"></div>
       </div>
 
       <div class="card-info">

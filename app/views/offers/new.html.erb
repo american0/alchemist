@@ -20,6 +20,8 @@
         <%= f.input :base_price, label: "Please enter the price in € TTC per person" %>
         <%= f.input :price_20, label: "Please enter the price in € TTC per person when number of guest is greater than 20 people " %>
         <%= f.input :price_50, label: "Please enter the price in € TTC per person when number of guest is greater than 50 people" %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
         <%= f.submit class: "btn btn-primary" %>
       <% end %>
     </div>

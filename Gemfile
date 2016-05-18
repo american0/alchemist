@@ -18,6 +18,7 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'cloudinary'
 gem 'omniauth-facebook'
+gem "geocoder"
 
 group :development, :test do
   gem 'binding_of_caller'

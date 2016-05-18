@@ -18,7 +18,7 @@
         <%f.price_50%><br>
 
         <!-- DESTROY BUTTON -->
-        <% if current_user == @user %>
+        <% if user_signed_in? && current_user == @user %>
               <%= link_to "<i class='fa fa-close text-danger'></i>".html_safe, offer_path(f), method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
 
@@ -32,7 +32,7 @@
 
 
   <!-- ADD AN OFFER BUTTON  -->
-  <% if current_user == @user %>
+  <% if user_signed_in? && current_user == @user %>
     <%= link_to "Add a mixologist offer", new_offer_path, class: "btn btn-primary" %>
   <% end %>
 

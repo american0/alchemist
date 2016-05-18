@@ -3,8 +3,11 @@
     <%= image_tag "logo_white.png" %>
   </div>
 </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> 040247029278d437df28e692dc71b2b8ba13ee9b
+<%= form_tag("/offers", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <%= render 'layouts/card_offer' %>

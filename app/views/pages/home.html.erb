@@ -5,7 +5,7 @@
 </div>
 
 <%= form_tag("/offers", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
+  <%= label_tag(:q) %>
   <%= text_field_tag(:q) %>
   <%= submit_tag("Search") %>
 <% end %>

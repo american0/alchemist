@@ -18,6 +18,7 @@ gem 'devise'
 gem 'cloudinary'
 gem 'omniauth-facebook'
 gem "geocoder"
+gem "carrierwave"
 
 group :development, :test do
   gem 'binding_of_caller'

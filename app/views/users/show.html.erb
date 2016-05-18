@@ -1,16 +1,23 @@
 <div class="banner-user" style="background-image: url(<%= image_path 'banner-profile.jpg' %>)">
+  <%= image_tag current_user.picture %>
   <h1><%=@user.first_name + " " + @user.last_name%></h1>
 </div>
 
 <div class="container-user">
   <div class="user-content">
     <br>
+
     <% current_user.offers.each do |f| %>
       <div class="card">
-      <div class="banner"><h3><%=f.title.upcase%></h3></div>
+      <div class="footer"><%= image_tag current_user.picture %><%=@user.first_name.capitalize + " " + @user.last_name.upcase%></div>
+      <div class="banner1">
+      <div class="banner"></div>
+      </div>
+
       <div class="card-info">
+      <h3><%=f.title.upcase%></h3>
       <p><i class="fa fa-map-marker" aria-hidden="true"></i><%=f.city%><br><br></p>
-        <%=f.description%><br>
+        <%f.description%><br>
         <%f.base_price%><br>
         <%f.price_20%><br>
         <%f.price_50%>
@@ -19,7 +26,8 @@
 
       </div>
     <%end%>
+
   </div>
 
   <%= link_to "Add a mixologist offer", new_offer_path, class: "btn btn-primary" %>
-  </div>
+</div>

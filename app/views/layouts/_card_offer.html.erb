@@ -15,7 +15,13 @@
         <%f.description%><br>
         <%f.base_price%><br>
         <%f.price_20%><br>
-        <%f.price_50%>
+        <%f.price_50%><br>
+
+        <!-- DESTROY BUTTON -->
+        <% if current_user == @user %>
+              <%= link_to "<i class='fa fa-close text-danger'></i>".html_safe, offer_path(f), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+
       </div>
       <div class="circle-buy"><i class="fa fa-plus" aria-hidden="true"></i></div>
 
@@ -24,6 +30,8 @@
 
   </div>
 
+
+  <!-- ADD AN OFFER BUTTON  -->
   <% if current_user == @user %>
     <%= link_to "Add a mixologist offer", new_offer_path, class: "btn btn-primary" %>
   <% end %>

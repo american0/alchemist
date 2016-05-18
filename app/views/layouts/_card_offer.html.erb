@@ -4,27 +4,38 @@
 
     <% @offers.each do |f| %>
       <div class="card">
-      <div class="footer"><%= image_tag f.user.picture %><%=f.user.first_name.capitalize + " " + f.user.last_name.upcase%></div>
-      <div class="banner1">
-      <div class="banner"></div>
-      </div>
-
-      <div class="card-info">
-      <h3><%=f.title.upcase%></h3>
-      <p><i class="fa fa-map-marker" aria-hidden="true"></i><%=f.city%><br><br></p>
-        <%f.description%><br>
-        <%f.base_price%><br>
-        <%f.price_20%><br>
-        <%f.price_50%><br>
+        <div class="footer"><%= image_tag f.user.picture %><%=f.user.first_name.capitalize + " " + f.user.last_name.upcase%></div>
+        <div class="banner1">
+        <div class="banner"></div>
+        </div>
 
         <!-- DESTROY BUTTON -->
         <% if current_user == @user %>
               <%= link_to "<i class='fa fa-close text-danger'></i>".html_safe, offer_path(f), method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
-
-      </div>
-      <div class="circle-buy"><i class="fa fa-plus" aria-hidden="true"></i></div>
-
+        <div class="card-info">
+        <h3><%=f.title.upcase%></h3>
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i><%=f.city%><br><br></p>
+          <%f.description%><br>
+          <%f.base_price%><br>
+          <%f.price_20%><br>
+          <%f.price_50%>
+        </div>
+        <div class="circle-buy"><i class="fa fa-plus" data-toggle="modal" data-target="#offer_modal_<%= f.id %>" aria-hidden="true"></i></div>
+        <div id="offer_modal_<%= f.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content" class="text-center">
+              <div class="class modal-body">
+                <h4><%=f.title%></h4>
+                <p><%=f.description%></p>
+              </div>
+              <div class="class modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <%=link_to "Book this offer now !", new_offer_booking_path(f.id), class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     <%end%>
 

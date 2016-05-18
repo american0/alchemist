@@ -9,6 +9,10 @@
         <div class="banner"></div>
         </div>
 
+        <!-- DESTROY BUTTON -->
+        <% if current_user == @user %>
+              <%= link_to "<i class='fa fa-close text-danger'></i>".html_safe, offer_path(f), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
         <div class="card-info">
         <h3><%=f.title.upcase%></h3>
         <p><i class="fa fa-map-marker" aria-hidden="true"></i><%=f.city%><br><br></p>
@@ -37,6 +41,8 @@
 
   </div>
 
+
+  <!-- ADD AN OFFER BUTTON  -->
   <% if current_user == @user %>
     <%= link_to "Add a mixologist offer", new_offer_path, class: "btn btn-primary" %>
   <% end %>

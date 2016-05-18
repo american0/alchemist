@@ -9,4 +9,7 @@ class Offer < ActiveRecord::Base
   validates :base_price, presence: true
   validates :price_20, presence: true
   validates :price_50, presence: true
+
+  geocoded_by :city
+  after_validation :geocode, if: :city_changed?
 end

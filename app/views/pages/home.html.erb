@@ -4,7 +4,7 @@
     <div class="div-se">
       <%= form_tag("/offers", method: "get") do %>
       <%= text_field_tag(:q) %>
-      <%= submit_tag("Search") %>
+      <%= submit_tag("Search", class: "form_submit btn btn-primary")  %>
       </div>
 <% end %>
   </div>

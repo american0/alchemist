@@ -9,20 +9,43 @@
       <div class="banner" style="background-image: url('<%= image_path f.photo, height: 300, width: 400, crop: :fill %>')"></div>
       </div>
 
-      <div class="card-info">
-      <h3><%=f.title.upcase%></h3>
-      <p><i class="fa fa-map-marker" aria-hidden="true"></i><%=f.city%><br><br></p>
-        <%f.description%><br>
-        <%f.base_price%><br>
-        <%f.price_20%><br>
-        <%f.price_50%>
-      </div>
-      <div class="circle-buy"><i class="fa fa-plus" aria-hidden="true"></i></div>
 
+        <div class="card-info">
+          <h3><%=f.title.upcase%></h3>
+          <p><i class="fa fa-map-marker" aria-hidden="true"></i><%=f.city%></p>
+          <p><br></p>
+          <p>
+            <!-- DESTROY BUTTON -->
+            <% if user_signed_in? && current_user == @user %>
+               <%= link_to "Delete", offer_path(f), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+            <% end %>
+          </p>
+        </div>
+
+        <div class="circle-buy"><i class="fa fa-plus" data-toggle="modal" data-target="#offer_modal_<%= f.id %>" aria-hidden="true"></i></div>
+        <div id="offer_modal_<%= f.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content" class="text-center">
+              <div class="class modal-body">
+                <h4><%=f.title%></h4>
+                <p><%=f.description%></p>
+              </div>
+              <div class="class modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <%=link_to "Book this offer now !", new_offer_booking_path(f.id), class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     <%end%>
 
   </div>
 
-  <%= link_to "Add a mixologist offer", new_offer_path, class: "btn btn-primary" %>
+
+  <!-- ADD AN OFFER BUTTON  -->
+  <% if user_signed_in? && current_user == @user %>
+    <%= link_to "Add a mixologist offer", new_offer_path, class: "btn btn-primary" %>
+  <% end %>
+
 </div>

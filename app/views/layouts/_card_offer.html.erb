@@ -1,11 +1,7 @@
-<div class="banner-user" style="background-image: url(<%= image_path 'banner-profile.jpg' %>)">
-  <h1><%=@user.first_name + " " + @user.last_name%></h1>
-</div>
-
 <div class="container-user">
   <div class="user-content">
     <br>
-    <% current_user.offers.each do |f| %>
+    <% @offers.each do |f| %>
       <div class="card">
       <div class="banner"><h3><%=f.title.upcase%></h3></div>
       <div class="card-info">
@@ -20,6 +16,3 @@
       </div>
     <%end%>
   </div>
-
-  <%= link_to "Add a mixologist offer", new_offer_path, class: "btn btn-primary" %>
-</div>

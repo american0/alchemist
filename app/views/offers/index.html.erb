@@ -1,11 +1,22 @@
+<div class="banner-user" style="background-image: url(<%= image_path 'banner-profile.jpg' %>)">
+  <h1>We found <%=@offers.size%> offers for you !</h1>
+</div>
 
-
-<%= @offers.each do |offer| %>
-<p><%= offer.title %></p>
-<p><%= offer.city %></p>
-<p><%= offer.description %></p>
-<p><%= offer.base_price %></p>
-<p><%= offer.price_20 %></p>
-<p><%= offer.price_50 %></p>
-
-<% end %>
+<div class="container-user">
+  <div class="user-content">
+    <br>
+    <% @offers.each do |f| %>
+      <div class="card">
+      <div class="banner"><h3><%=f.title.upcase%></h3></div>
+      <div class="card-info">
+      <p><i class="fa fa-map-marker" aria-hidden="true"></i><%=f.city%><br><br></p>
+        <%=f.description%><br>
+        <%f.base_price%><br>
+        <%f.price_20%><br>
+        <%f.price_50%>
+      </div>
+      <div class="circle-buy"><i class="fa fa-plus" aria-hidden="true"></i></div>
+      </div>
+    <%end%>
+  </div>
+</div>

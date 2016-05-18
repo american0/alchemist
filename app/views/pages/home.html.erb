@@ -4,4 +4,10 @@
   </div>
 </div>
 
+<%= form_tag("/offers", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <%= render 'layouts/card_offer' %>

@@ -1,7 +1,11 @@
 class OffersController < ApplicationController
 
   def index
-    @offers = Offer.all
+    if  params[:q] == nil
+      @offers = Offer.all
+    else
+      @offers = Offer.near(params[:q], 10)
+    end
   end
 
   def new

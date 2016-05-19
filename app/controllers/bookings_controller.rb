@@ -13,12 +13,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @offer = Offer.find(params[:offer_id])
     if @booking.guest < 20
-      @booking.price = @booking.guest * @offer.price
+      @booking.price = @booking.guest * @offer.base_price
     elsif @booking.guest < 50
       @booking.price = @booking.guest * @offer.price_20
     else
       @booking.price = @booking.guest * @offer.price_50
     end
+    @booking.accepted = false
     @booking.user_id = current_user.id
     @booking.offer_id = @offer.user_id
     if @booking.save

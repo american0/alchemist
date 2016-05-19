@@ -1,0 +1,22 @@
+Searching 150 files for "Logo.png"
+
+/Users/constantdesfosse/code/american0/alchemist/app/views/layouts/_navbar.html.erb:
+    2    <!-- Logo -->
+    3    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    4:     <%= image_tag "Logo.png" %>
+    5    <% end %>
+    6
+
+1 match in 1 file
+
+
+Searching 150 files for "Logo.png"
+
+/Users/constantdesfosse/code/american0/alchemist/app/views/layouts/_navbar.html.erb:
+    2    <!-- Logo -->
+    3    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    4:     <%= image_tag "Logo.png" %>
+    5    <% end %>
+    6
+
+1 match in 1 file

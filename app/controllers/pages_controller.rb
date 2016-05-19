@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @offers = Offer.last(6).reverse
+    @offers = Offer.last(12).reverse
   end
 
   def offers

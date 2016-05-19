@@ -1,18 +1,36 @@
-<div class="wrapper">
-  <div class="container">
-
-    <div class="home-logo"><%= image_tag "logo_white.png" %></div>
-    <br>
-    <div class="div-se">
-
-
+<<<<<<< HEAD
+<div class="homepage-hero-module">
+  <div class="video-container">
+    <div class="home-logo text-center">
+      <%= image_tag "logo_white.png" %>
       <%= form_tag("/offers", method: "get", class: "form-inline") do %>
-      <%= text_field_tag :q, nil, class: 'form-control' %>
-      <%= submit_tag("Search", class: "form_submit btn btn-primary")  %>
+        <%= text_field_tag :q, nil, class: 'form-control' %>
+        <%= submit_tag("Search", class: "form_submit btn btn-primary")  %>
       <% end %>
     </div>
-
+    <div class="filter"></div>
+    <video autoplay loop class="fillWidth">
+      <source src="http://res.cloudinary.com/constantdesfosse/video/upload/v1463651726/Three-Cocktails_ido1ts.mp4" />
+      <source src="video/Three-Cocktails.webm" type="video/webm" />
+    </video>
+    <div class="poster hidden">
+      <img src="PATH_TO_JPEG" alt="">
+    </div>
   </div>
 </div>
 
 <%= render 'layouts/card_offer' %>
+
+<% content_for :after_js do %>
+  <script>
+    $(document).ready(function() {
+      $(window).on('scroll', function() {
+        if ($('.container-user').position().top - 70 <= $(window).scrollTop()) {
+          $('.navbar-wagon').addClass('colored');
+        } else {
+          $('.navbar-wagon').removeClass('colored');
+        }
+      })
+    })
+  </script>
+<% end %>

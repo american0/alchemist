@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'offers', to: 'pages#offers'
 
 
-
   resources :cocktails
   resources :reviews
   resources :offers do

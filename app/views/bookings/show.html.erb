@@ -1,4 +1,13 @@
-
+<div class="banner-user" style="background-image: url(<%= image_path 'banner-profile.jpg' %>)">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <h2 class="text-center">Please fill in the form to complete the booking with <%= User.find(@offer.user_id).first_name%></h2>
+        <h4 class="text-center"> You selected the offer "<%= @offer.title %>"</h4>
+      </div>
+    </div>
+  </div>
+</div>
 
 <p><%= @booking.date %></p>
 <p><%= @booking.address %></p>

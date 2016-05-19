@@ -26,9 +26,30 @@
         <div id="offer_modal_<%= f.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg">
             <div class="modal-content" class="text-center">
+              <div class="modal-header" style="background-image: url(<%= image_path 'banner-profile.jpg' %>)">
+                <%= image_tag f.photo %>
+              </div>
               <div class="class modal-body">
                 <h4><%=f.title%></h4>
-                <p><%=f.description%></p>
+                <p><%=f.description%></p><br>
+                <h4>Price Range</h4>
+                <div class="row">
+                  <div class="col-xs-12 col-md-4">
+                    <%= image_tag "small_groups.png" %>
+                    <p><i>Small Groups (less than 20 people)</i></p>
+                    <p><%= f.base_price %> € / guest</p>
+                  </div>
+                  <div class="col-xs-12 col-md-4">
+                    <%= image_tag "mid_groups.png" %>
+                    <p><i>Medium Groups (20-50 people)</i></p>
+                    <p><%= f.price_20 %> € / guest</p>
+                  </div>
+                  <div class="col-xs-12 col-md-4">
+                    <%= image_tag "large_groups.png" %>
+                    <p><i>Large Groups (more than 50 people)</i></p>
+                    <p><%= f.price_50 %> € / guest</p>
+                  </div>
+                </div>
               </div>
               <div class="class modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

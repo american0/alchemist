@@ -6,4 +6,5 @@ class Booking < ActiveRecord::Base
 
   validates :date, presence: true
   validates :address, presence: true
+  validates :guest, presence: true
 end

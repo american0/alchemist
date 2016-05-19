@@ -12,7 +12,7 @@
 
 <div class="container" id="homepage">
   <div class="row" style="margin-top: 15px">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <div class="col-xs-12 col-sm-6">
       <% if @booking.errors.any? %>
         <ul>
           <%@booking.errors.full_messages.each do |message| %>
@@ -20,11 +20,39 @@
           <% end %>
         </ul>
       <% end %>
+      <div class="bookform">
       <%= simple_form_for ([@offer, @booking]) do |f| %>
         <%= f.input :date, as: :string, input_html: { class: "datepicker" } %>
         <%= f.input :address, label: "Please give your full address" %>
+        <%= f.input :guest, label: "Please indicate number of guests"%>
         <%= f.submit class: "btn btn-primary" %>
       <% end %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <h4 class="text-center">Here is your estimated price for your party : </h4>
+      <div class="guest"></div>
     </div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function(){
+      $('#booking_guest').change(function(){
+        if ($('#booking_guest').val() < 20) {
+          var price = <%=@offer.base_price%>;
+        } else if ($('#booking_guest').val() < 50) {
+          var price = <%=@offer.price_20%>;
+        } else {
+          var price = <%=@offer.price_50%>;
+        }
+        var totalPrice = price * $('#booking_guest').val();
+        $('.guest').text(totalPrice + "€");
+      });
+      $('.datepicker').datepicker({
+        dateFormat: "dd-mm-yy"
+      });
+    });
+  </script>
+<% end %>

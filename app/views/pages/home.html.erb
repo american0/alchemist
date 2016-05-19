@@ -4,8 +4,10 @@
     <div class="home-logo"><%= image_tag "logo_white.png" %></div>
     <br>
     <div class="div-se">
-      <%= form_tag("/offers", method: "get") do %>
-      <%= text_field_tag(:q) %>
+
+
+      <%= form_tag("/offers", method: "get", class: "form-inline") do %>
+      <%= text_field_tag :q, nil, class: 'form-control' %>
       <%= submit_tag("Search", class: "form_submit btn btn-primary")  %>
       <% end %>
     </div>

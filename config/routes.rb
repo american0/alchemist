@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  root to: 'pages#test'
+  root to: 'pages#home'
+
+  get 'test', to: 'pages#test'
 
   resources :cocktails
   resources :reviews

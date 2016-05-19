@@ -3,12 +3,17 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 .wrapper {
+  position: relative;
   background: image_url('background.jpg');
   background-size: cover;
-  height: 70vh;
+  height: 100vh;
   text-align: center;
   display: flex;
   align-items: center;
+}
+
+.home-logo img {
+  width: 300px;
 }
 
 .container {

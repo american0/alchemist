@@ -1,0 +1,42 @@
+<%= render 'layouts/banner_user' %>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="table-responsive">
+        <h3>My offers</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Actions</th>
+              <th>Title</th>
+              <th>City</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          <% @offers.each do |f| %>
+            <tr>
+              <td>
+                <%= link_to "Edit", offer_path(f), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-sm" %>
+
+                <%= link_to "Delete", offer_path(f), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+              </td>
+              <td><%= f.title.upcase %></td>
+              <td><%= f.city %></td>
+              <td><%= "€ #{f.base_price},00" %></td>
+
+              </tr>
+            <%end%>
+          </tbody>
+        </table>
+
+
+
+        <!-- ADD AN OFFER BUTTON  -->
+        <%= link_to "Add a mixologist offer", new_offer_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

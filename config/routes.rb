@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   root to: 'pages#home'
-  get 'test', to: 'pages#test'
+
+  get 'offers', to: 'pages#offers'
+
+
 
   resources :cocktails
   resources :reviews

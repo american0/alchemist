@@ -19,7 +19,7 @@
           <% @offers.each do |f| %>
             <tr>
               <td>
-                <%= link_to "Edit", offer_path(f), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-sm" %>
+                <%= link_to "Edit", edit_offer_path(f), class: "btn btn-primary btn-sm" %>
 
                 <%= link_to "Delete", offer_path(f), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
               </td>

@@ -16,6 +16,7 @@
               <th>Client</th>
               <th># of guest</th>
               <th>Amount invoiced</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -26,6 +27,13 @@
               <td><%= @users.find(f.user_id).first_name + " " + @users.find(f.user_id).last_name %></td>
               <td><%= f.guest %></td>
               <td><%= f.price %></td>
+              <td>
+                <%if f.accepted == true%>
+                  <%="accepted"%>
+                <%else%>
+                  <%="not accepted"%>
+                <%end%>
+              </td>
 
               </tr>
             <%end%>

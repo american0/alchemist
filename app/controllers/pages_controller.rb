@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     @offers = Offer.last(12).reverse
   end
 
-  def offers
+  def listoffers
     @user = current_user
     @offers = Offer.where("user_id = ?", current_user.id)
   end

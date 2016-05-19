@@ -1,7 +1,8 @@
 <div class="wrapper">
   <div class="container">
-    <%= image_tag "logo_white.png" %><br><br>
 
+    <div class="home-logo"><%= image_tag "logo_white.png" %></div>
+    <br>
     <div class="div-se">
       <%= form_tag("/offers", method: "get") do %>
       <%= text_field_tag(:q) %>

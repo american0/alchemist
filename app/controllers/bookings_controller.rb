@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.offer_id = @offer.user_id
     if @booking.save
-      redirect_to user_path(current_user)
+      redirect_to offer_bookings_path(current_user)
     else
       render :new
     end

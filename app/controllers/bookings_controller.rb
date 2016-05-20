@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     else
       @booking.price = @booking.guest * @offer.price_50
     end
-    @booking.accepted = false
+    @booking.accepted = nil
     @booking.user_id = current_user.id
     @booking.offer_id = @offer.user_id
     if @booking.save
@@ -33,9 +33,19 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    if @booking.save
+      redirect_to offer_bookings_path(current_user)
+    else
+      render :show
+    end
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :address, :guest)
+    params.require(:booking).permit(:date, :address, :guest, :accepted)
   end
 end

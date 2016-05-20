@@ -5,11 +5,11 @@
     <% @offers.each do |f| %>
       <div class="card">
       <div class="footer">
-        <%= image_tag f.user.avatar %><%=f.user.first_name.capitalize + " " + f.user.last_name.upcase %>
+        <%= cl_image_tag f.user.avatar %><%=f.user.first_name.capitalize + " " + f.user.last_name.upcase %>
         <a href='/users/<%= f.user.id %>'><span id="footer-link"></span></a>
       </div>
       <div class="banner1">
-      <div class="banner" style="background-image: url('<%= image_path f.photo, height: 300, width: 400, crop: :fill %>')"></div>
+      <div class="banner" style="background-image: url('<%= cl_image_path f.photo, height: 300, width: 400, crop: :fill %>')"></div>
       </div>
 
 
@@ -30,7 +30,7 @@
           <div class="modal-dialog modal-lg">
             <div class="modal-content" class="text-center">
               <div class="modal-header" style="background-image: url(<%= image_path 'banner-profile.jpg' %>)">
-                <%= image_tag f.photo %>
+                <%= cl_image_tag f.photo %>
               </div>
               <div class="class modal-body">
                 <h4><%=f.title%></h4>

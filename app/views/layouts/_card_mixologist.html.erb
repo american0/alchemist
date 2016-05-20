@@ -1,0 +1,21 @@
+<div class="container-user">
+  <div class="user-content">
+    <br>
+
+    <% @users.each do |f| %>
+      <div class="cardmixologist">
+        <div class="bannermixo">
+          <%= cl_image_tag f.avatar%>
+        </div>
+        <div class="infomixo">
+          <p><%= f.first_name.capitalize + " " + f.last_name.upcase %></p>
+        </div>
+
+        <div class="avatarmixo" >
+        <%= cl_image_tag f.avatar%>
+        </div>
+
+      </div>
+      <%end%>
+  </div>
+</div>

@@ -5,14 +5,14 @@
     <% @users.each do |f| %>
       <div class="cardmixologist">
         <div class="bannermixo">
-          <%= image_path f.avatar%>
+          <%= cl_image_tag f.avatar%>
         </div>
         <div class="infomixo">
-          <%= f.first_name %>
+          <p><%= f.first_name.capitalize + " " + f.last_name.upcase %></p>
         </div>
 
-        <div class="avatarmixo">
-        <%= image_path f.avatar%>
+        <div class="avatarmixo" >
+        <%= cl_image_tag f.avatar%>
         </div>
 
       </div>

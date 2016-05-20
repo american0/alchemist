@@ -90,12 +90,18 @@
               <td align="left">
                 <% if booking.accepted.nil? %>
                   <%= simple_form_for([booking.offer, booking]) do |event| %>
-                    <%= event.input :accepted, :as => :hidden, :input_html => { :value => true } %>
-                    <%= event.submit "accept", class: "btn btn-primary" %>
-                  <% end %>
-                  <%= simple_form_for([booking.offer, booking]) do |event| %>
-                    <%= event.input :accepted, :as => :hidden, :input_html => { :value => false } %>
-                    <%= event.submit "decline", class: "btn btn-danger" %>
+                    <div class="button-inline">
+                    <ul class="list-inline">
+                      <li>
+                        <%= event.input :accepted, :as => :hidden, :input_html => { :value => true } %>
+                        <%= event.submit "Accept", class: "btn btn-primary btn-xs" %>
+                      </li>
+                      <li>
+                        <%= event.input :accepted, :as => :hidden, :input_html => { :value => false } %>
+                        <%= event.submit "Decline", class: "btn btn-danger btn-xs" %>
+                      </li>
+                    </ul>
+                    </div>
                   <% end %>
                 <%else%>
                 <% if booking.accepted == true %>

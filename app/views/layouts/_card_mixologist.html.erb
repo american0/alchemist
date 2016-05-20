@@ -10,15 +10,16 @@
 
     <% mixologists.each do |f| %>
       <div class="cardmixologist">
-        <div class="bannermixo">
-          <%= cl_image_tag f.avatar%>
-        </div>
         <div class="infomixo">
           <p><%= f.first_name.capitalize + " " + f.last_name.upcase %></p>
+          <h5><%= f.description%></h5>
         </div>
 
         <div class="avatarmixo" >
-        <%= cl_image_tag f.avatar%>
+        <%= cl_image_tag f.avatar, height: 130, width: 130, crop: :fill%>
+        </div>
+        <div class="footermix">
+        <i class="fa fa-facebook" aria-hidden="true"></i><i class="fa fa-instagram" aria-hidden="true"></i><i class="fa fa-twitter" aria-hidden="true"></i>
         </div>
         <a href='/users/<%= f.id %>'><span id="footer-link"></span></a>
       </div>

@@ -4,6 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up).push(:first_name, :last_name, :photo, :photo_cache)
+    devise_parameter_sanitizer.for(:sign_up).push(:first_name, :last_name, :photo, :photo_cache, :description)
   end
 end

@@ -18,7 +18,7 @@ class OffersController < ApplicationController
 
   def update
     @offer.update(offer_params)
-    redirect_to offers_path
+    redirect_to user_path(current_user)
   end
 
   def create

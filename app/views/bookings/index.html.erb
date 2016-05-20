@@ -30,12 +30,12 @@
             <tbody>
             <% @bookings.each do |booking| %>
               <tr>
-                <td><%= booking.date %></td>
-                <td><%= booking.address %></td>
-                <td><%= @users.find(booking.offer_id).first_name + " " + @users.find(booking.offer_id).last_name %></td>
-                <td><%= booking.guest %></td>
-                <td><%= booking.price %></td>
-                <td>
+                <td align="left"><%= booking.date %></td>
+                <td align="left"><%= booking.address %></td>
+                <td align="left"><%= @users.find(booking.offer_id).first_name + " " + @users.find(booking.offer_id).last_name %></td>
+                <td align="left"><%= booking.guest %></td>
+                <td align="left"><%= booking.price %></td>
+                <td align="left">
                   <% if booking.accepted.nil? %>
                     <%= "Waiting for answer" %>
                   <%else%>
@@ -82,12 +82,12 @@
           <tbody>
           <% @bookings.each do |booking| %>
             <tr>
-              <td><%= booking.date %></td>
-              <td><%= booking.address %></td>
-              <td><%= @users.find(booking.user_id).first_name + " " + @users.find(booking.user_id).last_name %></td>
-              <td><%= booking.guest %></td>
-              <td><%= booking.price %></td>
-              <td>
+              <td align="left"><%= booking.date %></td>
+              <td align="left"><%= booking.address %></td>
+              <td align="left"><%= @users.find(booking.user_id).first_name + " " + @users.find(booking.user_id).last_name %></td>
+              <td align="left"><%= booking.guest %></td>
+              <td align="left"><%= booking.price %></td>
+              <td align="left">
                 <% if booking.accepted.nil? %>
                   <%= simple_form_for([booking.offer, booking]) do |event| %>
                     <%= event.input :accepted, :as => :hidden, :input_html => { :value => true } %>

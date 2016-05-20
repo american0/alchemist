@@ -32,7 +32,7 @@
               <tr>
                 <td align="left"><%= booking.date %></td>
                 <td align="left"><%= booking.address %></td>
-                <td align="left"><%= @users.find(booking.offer_id).first_name + " " + @users.find(booking.offer_id).last_name %></td>
+                <td align="left"><%= @users.find(booking.offer.user_id).first_name + " " %></td>
                 <td align="left"><%= booking.guest %></td>
                 <td align="left"><%= booking.price %></td>
                 <td align="left">

@@ -20,8 +20,8 @@ class BookingsController < ApplicationController
       @booking.price = @booking.guest * @offer.price_50
     end
     @booking.accepted = nil
-    @booking.user_id = current_user.id
-    @booking.offer_id = @offer.user_id
+    @booking.user = current_user
+    @booking.offer = @offer
     if @booking.save
       redirect_to offer_bookings_path(current_user)
     else

@@ -29,24 +29,26 @@
             </thead>
             <tbody>
             <% @bookings.each do |booking| %>
-              <tr>
-                <td align="left"><%= booking.date %></td>
-                <td align="left"><%= booking.address %></td>
-                <td align="left"><%= @users.find(booking.offer.user_id).first_name + " " %></td>
-                <td align="left"><%= booking.guest %></td>
-                <td align="left"><%= booking.price %></td>
-                <td align="left">
-                  <% if booking.accepted.nil? %>
-                    <%= "Waiting for answer" %>
-                  <%else%>
-                    <% if booking.accepted == true %>
-                      <%= "Accepted !" %>
-                      <% else %>
-                    <%= "Declined :(" %>
-                      <% end %>
-                  <%end%>
-                </td>
-                </tr>
+              <% if booking.user.id == current_user.id %>
+                <tr>
+                  <td align="left"><%= booking.date %></td>
+                  <td align="left"><%= booking.address %></td>
+                  <td align="left"><%= @users.find(booking.offer.user_id).first_name + " " %></td>
+                  <td align="left"><%= booking.guest %></td>
+                  <td align="left"><%= booking.price %></td>
+                  <td align="left">
+                    <% if booking.accepted.nil? %>
+                      <%= "Waiting for answer" %>
+                    <%else%>
+                      <% if booking.accepted == true %>
+                        <%= "Accepted !" %>
+                        <% else %>
+                      <%= "Declined :(" %>
+                        <% end %>
+                    <%end%>
+                  </td>
+                  </tr>
+                <%end%>
               <%end%>
             </tbody>
           </table>

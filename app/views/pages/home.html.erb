@@ -3,7 +3,7 @@
     <div class="home-logo text-center">
       <%= image_tag "Logowhite.png" %>
       <%= form_tag("/offers", method: "get", class: "form-inline") do %>
-        <%= text_field_tag :q, nil, class: 'form-control', placeholder: "Search for a city", onfocus: "myFunction(this)" %>
+        <%= text_field_tag :q, nil, class: 'form-control', placeholder: "Search for a mixologist around you", onfocus: "myFunction(this)" %>
         <%= submit_tag("Search", class: "form_submit btn btn-home")  %>
       <% end %>
     </div>
@@ -28,14 +28,14 @@
   </div>
   <div class="banner01">
   <i class="fa fa-tint" aria-hidden="true"></i>
-  <h2>Expand Your Life</h2>
+  <h2>Pick a recent offer</h2>
   </div>
 
 <%= render 'layouts/card_offer' %>
 
 <div class="banner02">
   <i class="fa fa-eyedropper" aria-hidden="true"></i>
-  <h2>Make Your Own Cocktail</h2>
+  <h2>Or choose a mixologist</h2>
   </div>
 
 <%= render 'layouts/card_mixologist' %>

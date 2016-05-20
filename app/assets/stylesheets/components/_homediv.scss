@@ -1,0 +1,43 @@
+.whatwd {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 400px;
+  background-color: #E6E6E6;
+}
+.banner01 {
+  width: 100%;
+  height: 290px;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: image_url('Firstbanner.jpg');
+  background-size: cover;
+  background-color: #E6E6E6;
+  color: white;
+  font-size: 50px;
+  flex-direction: column;
+}
+
+.banner02 {
+  width: 100%;
+  height: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: image_url('mojito-500.jpg');
+  background-size: cover;
+  background-color: #E6E6E6;
+  color: white;
+  font-size: 50px;
+  flex-direction: column;
+}
+
+.banner01 .fa-tint {
+font-size: 100px;
+}
+
+.banner02 .fa-eyedropper {
+font-size: 100px;
+}

@@ -1,30 +1,49 @@
-<div class="homepage-hero-module">
-  <div class="video-container">
+<div class="video-container">
+
     <div class="home-logo text-center">
-      <%= image_tag "logo_white.png" %>
+      <%= image_tag "Logowhite.png" %>
       <%= form_tag("/offers", method: "get", class: "form-inline") do %>
-        <%= text_field_tag :q, nil, class: 'form-control' %>
-        <%= submit_tag("Search", class: "form_submit btn btn-primary")  %>
+        <%= text_field_tag :q, nil, class: 'form-control', placeholder: "Search for a city", onfocus: "myFunction(this)" %>
+        <%= submit_tag("Search", class: "form_submit btn btn-home")  %>
       <% end %>
     </div>
-
+  <!--     <div class="footervideo">
+<%= image_tag "footervideo.png" %>
+</div> -->
+    <div class="blurok">
     <video autoplay loop class="fillWidth">
-      <source src="http://res.cloudinary.com/constantdesfosse/video/upload/v1463651726/Three-Cocktails_ido1ts.mp4" />
+      <source src="http://res.cloudinary.com/constantdesfosse/video/upload/ac_none,e_fade,q_100/v1463688347/Cocktail_in_Slow_Motion_with_JetChill_jruhyp.mp4" />
       <source src="video/Three-Cocktails.webm" type="video/webm" />
     </video>
+    </div>
     <div class="poster hidden">
       <img src="PATH_TO_JPEG" alt="">
     </div>
   </div>
-</div>
+  <div class="whatwd">
+      <!-- <div class="footervideo2">
+        <%= image_tag "footervideo.png" %>
+      </div> -->
+  <%= image_tag "whatwd.png" %>
+  </div>
+  <div class="banner01">
+  <i class="fa fa-tint" aria-hidden="true"></i>
+  <h2>Expand Your Life</h2>
+  </div>
 
+<%= render 'layouts/card_offer' %>
+
+<div class="banner02">
+  <i class="fa fa-eyedropper" aria-hidden="true"></i>
+  <h2>Make Your Own Cocktail</h2>
+  </div>
 <%= render 'layouts/card_offer' %>
 
 <% content_for :after_js do %>
   <script>
     $(document).ready(function() {
       $(window).on('scroll', function() {
-        if ($('.container-user').position().top - 70 <= $(window).scrollTop()) {
+        if ($('.whatwd').position().top - 70 <= $(window).scrollTop()) {
           $('.navbar-wagon').addClass('colored');
         } else {
           $('.navbar-wagon').removeClass('colored');
@@ -32,4 +51,13 @@
       })
     })
   </script>
+
+  <script>
+  $( "#q" ).on('focus', function() {
+    $('.home-logo img').addClass('blur');
+  });
+  $( "#q" ).focusout(function() {
+    $('.home-logo img').removeClass('blur').addClass('unblur');
+  });
+</script>
 <% end %>

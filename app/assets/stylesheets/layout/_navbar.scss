@@ -2,7 +2,6 @@
 .navbar-wagon {
 
   background-opacity: 0;
-  transition: all 0.3s ease;
   display: flex;
   height: 70px;
   padding: 0px 30px;
@@ -18,7 +17,7 @@
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 1;
+  // z-index: 1;
   width: 100%;
 }
 
@@ -55,15 +54,15 @@
 .navbar-wagon-button {
   margin-left: 10px;
   padding: 0 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   line-height: 40px;
-  background-color: #2C1626;
+  background-color: #292929;
   color: white;
   font-size: 14px;
   transition: 1s;
 }
 .navbar-wagon-button:hover {
-  color: #2C1626;
+  color: #292929;
   background: white;
 }
 
@@ -104,8 +103,6 @@
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
-  box-shadow: 1px 1px 4px #E6E6E6;
-  border-color: #E6E6E6;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
@@ -135,4 +132,5 @@
 .colored {
   // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background-color: rgba(0, 0, 0, 0.5);
+  // background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
 }

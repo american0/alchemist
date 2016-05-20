@@ -1,8 +1,14 @@
+<% mixologists = [] %>
+<% @users.each do |user| %>
+  <% if user.offers != [] %>
+  <% mixologists << user %>
+<% end %>
+<%end%>
 <div class="container-user">
   <div class="user-content">
     <br>
 
-    <% @users.each do |f| %>
+    <% mixologists.each do |f| %>
       <div class="cardmixologist">
         <div class="bannermixo">
           <%= cl_image_tag f.avatar%>
@@ -14,7 +20,7 @@
         <div class="avatarmixo" >
         <%= cl_image_tag f.avatar%>
         </div>
-
+        <a href='/users/<%= f.id %>'><span id="footer-link"></span></a>
       </div>
       <%end%>
   </div>

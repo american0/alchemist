@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get 'offers', to: 'pages#offers'
+  get 'listoffers', to: 'pages#listoffers'
 
 
   resources :cocktails

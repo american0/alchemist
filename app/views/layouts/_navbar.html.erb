@@ -32,17 +32,17 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to offer_bookings_path(current_user) do %>
                 <i class="fa fa-calendar"></i>  <%= t ".profile", default: "Bookings" %>
               <% end %>
             </li>
             <li>
-              <%= link_to user_path(current_user) do %>
+              <%= link_to "/listoffers" do %>
                 <i class="fa fa-glass"></i> <%= t ".profile", default: "Offers" %>
               <% end %>
             </li>
             <li>
-              <%= link_to "/offers" do %>
+              <%= link_to "#" do %>
                 <i class="fa fa-users"></i> <%= t ".profile", default: "Events" %>
               <% end %>
             </li>

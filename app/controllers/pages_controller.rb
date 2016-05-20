@@ -4,7 +4,7 @@ class PagesController < ApplicationController
     @users = User.all
   end
 
-  def offers
+  def listoffers
     @user = current_user
     @offers = Offer.where("user_id = ?", current_user.id)
   end

@@ -2,7 +2,12 @@
   <div class="user-content">
     <br>
 
+
+    <div class="container">
+      <div class="row">
     <% @offers.each do |f| %>
+        <div class="col-xs-12 col-md-4">
+
       <div class="card">
       <div class="footer">
         <%= cl_image_tag f.user.avatar, height: 30, width: 30, crop: :fill %><%=f.user.first_name.capitalize + " " + f.user.last_name.upcase %>
@@ -24,6 +29,8 @@
             <% end %>
           </p>
         </div>
+
+
 
         <div class="circle-buy" data-toggle="modal" data-target="#offer_modal_<%= f.id %>"><i class="fa fa-plus" aria-hidden="true"></i></div>
         <div id="offer_modal_<%= f.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -62,7 +69,13 @@
           </div>
         </div>
       </div>
+
+        </div>
+
     <%end%>
+
+      </div>
+    </div>
 
   </div>
 

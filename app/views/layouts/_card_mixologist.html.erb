@@ -7,8 +7,14 @@
 <div class="container-user">
   <div class="user-content">
     <br>
+    <div class="container">
+      <div class="row">
 
     <% mixologists.each do |f| %>
+
+        <div class="col-xs-12 col-md-4">
+
+
       <div class="cardmixologist">
         <div class="infomixo">
           <p><%= f.first_name.capitalize + " " + f.last_name.upcase %></p>
@@ -23,6 +29,8 @@
         </div>
         <a href='/users/<%= f.id %>'><span id="footer-link"></span></a>
       </div>
+      </div>
       <%end%>
+      </div></div>
   </div>
 </div>

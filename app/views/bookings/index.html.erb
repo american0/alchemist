@@ -3,7 +3,67 @@
   <h1><%=current_user.first_name + " " + current_user.last_name%></h1>
 </div>
 
+<% counter = 0 %>
+<% @bookings.each do |booking| %>
+  <% if booking.user_id == current_user.id %>
+    <% counter += 1 %>
+  <%end%>
+<%end%>
+
 <div class="container text-center">
+  <% if counter > 0 %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="table-responsive">
+          <h3>My upcoming events booked with a mixologist</h3>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Address</th>
+                <th>Mixologist</th>
+                <th># of guest</th>
+                <th>Amount invoiced</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @bookings.each do |booking| %>
+              <tr>
+                <td><%= booking.date %></td>
+                <td><%= booking.address %></td>
+                <td><%= @users.find(booking.offer_id).first_name + " " + @users.find(booking.offer_id).last_name %></td>
+                <td><%= booking.guest %></td>
+                <td><%= booking.price %></td>
+                <td>
+                  <% if booking.accepted.nil? %>
+                    <%= "Waiting for answer" %>
+                  <%else%>
+                    <% if booking.accepted == true %>
+                      <%= "Accepted !" %>
+                      <% else %>
+                    <%= "Declined :(" %>
+                      <% end %>
+                  <%end%>
+                </td>
+                </tr>
+              <%end%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if current_user.offers == [] %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="table-responsive">
+          <h3>My bookings</h3>
+            <p>You are not a mixologist, hence, no bookings dude !</p>
+        </div>
+      </div>
+    </div>
+  <% else %>
   <div class="row">
     <div class="col-xs-12">
       <div class="table-responsive">
@@ -20,21 +80,31 @@
             </tr>
           </thead>
           <tbody>
-          <% @bookings.each do |f| %>
+          <% @bookings.each do |booking| %>
             <tr>
-              <td><%= f.date %></td>
-              <td><%= f.address %></td>
-              <td><%= @users.find(f.user_id).first_name + " " + @users.find(f.user_id).last_name %></td>
-              <td><%= f.guest %></td>
-              <td><%= f.price %></td>
+              <td><%= booking.date %></td>
+              <td><%= booking.address %></td>
+              <td><%= @users.find(booking.user_id).first_name + " " + @users.find(booking.user_id).last_name %></td>
+              <td><%= booking.guest %></td>
+              <td><%= booking.price %></td>
               <td>
-                <%if f.accepted == true%>
-                  <%="accepted"%>
+                <% if booking.accepted.nil? %>
+                  <%= simple_form_for([booking.offer, booking]) do |event| %>
+                    <%= event.input :accepted, :as => :hidden, :input_html => { :value => true } %>
+                    <%= event.submit "accept", class: "btn btn-primary" %>
+                  <% end %>
+                  <%= simple_form_for([booking.offer, booking]) do |event| %>
+                    <%= event.input :accepted, :as => :hidden, :input_html => { :value => false } %>
+                    <%= event.submit "decline", class: "btn btn-danger" %>
+                  <% end %>
                 <%else%>
-                  <%="not accepted"%>
+                <% if booking.accepted == true %>
+                  <%= "Accepted !" %>
+                  <% else %>
+                <%= "Declined :(" %>
+                  <% end %>
                 <%end%>
               </td>
-
               </tr>
             <%end%>
           </tbody>
@@ -42,6 +112,7 @@
       </div>
     </div>
   </div>
+  <%end%>
 </div>
 
 

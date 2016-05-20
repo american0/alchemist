@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @offers = Offer.last(12).reverse
+    @users = User.all
   end
 
   def offers

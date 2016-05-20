@@ -1,0 +1,21 @@
+<div class="container-user">
+  <div class="user-content">
+    <br>
+
+    <% @users.each do |f| %>
+      <div class="cardmixologist">
+        <div class="bannermixo">
+          <%= image_path f.avatar%>
+        </div>
+        <div class="infomixo">
+          <%= f.first_name %>
+        </div>
+
+        <div class="avatarmixo">
+        <%= image_path f.avatar%>
+        </div>
+
+      </div>
+      <%end%>
+  </div>
+</div>

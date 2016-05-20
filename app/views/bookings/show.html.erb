@@ -1,0 +1,45 @@
+
+
+
+
+            <div class="text-center">
+              <div class="modal-header" style="background-image: url(<%= image_path 'banner-profile.jpg' %>)">
+                <%= cl_image_tag @booking.photo %>
+              </div>
+              <div class="modal-body">
+                <h4><%=@booking.title%></h4>
+                <p><%=@booking.description%></p><br>
+                <h4>Price Range</h4>
+                <div class="row">
+                  <div class="col-xs-12 col-md-4">
+                    <%= image_tag "small_groups.png" %>
+                    <p><i>Small Groups (less than 20 people)</i></p>
+                    <p><%= @booking.base_price %> € / guest</p>
+                  </div>
+                  <div class="col-xs-12 col-md-4">
+                    <%= image_tag "mid_groups.png" %>
+                    <p><i>Medium Groups (20-50 people)</i></p>
+                    <p><%= @booking.price_20 %> € / guest</p>
+                  </div>
+                  <div class="col-xs-12 col-md-4">
+                    <%= image_tag "large_groups.png" %>
+                    <p><i>Large Groups (more than 50 people)</i></p>
+                    <p><%= @booking.price_50 %> € / guest</p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <%=link_to "Book this offer now !", new_offer_booking_path(@booking.id), class: "btn btn-primary" %>
+              </div>
+            <hr>
+            <%= @reviews.each do |review|%>
+
+            <p>review.title</p>
+            <p>review.description</p>
+            <p>review.rating</p>
+
+
+            <% end %>
+            </div>
+

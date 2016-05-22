@@ -29,7 +29,6 @@
             </thead>
             <tbody>
             <% @bookings.each do |booking| %>
-              <% if booking.user.id == current_user.id %>
                 <tr>
                   <td align="left"><%= booking.date %></td>
                   <td align="left"><%= booking.address %></td>
@@ -45,7 +44,6 @@
                         <% else %>
                       <%= "Declined :(" %>
                         <% end %>
-                    <%end%>
                   </td>
                   </tr>
                 <%end%>
